@@ -3,7 +3,7 @@
 An agent website for learning and training
 
 软件环境
-类别	
+
 操作系统	Ubuntu Server 22.04 LTS
 GPU驱动	与CUDA和显卡型号匹配的NVIDIA官方驱动
 模型服务	Ollama
