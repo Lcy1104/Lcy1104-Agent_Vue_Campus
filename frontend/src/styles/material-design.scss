@@ -1,0 +1,192 @@
+@use "./variables.scss" as *;
+
+// Material Design 全局样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $surface;
+  color: $on-surface;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Material Design 卡片
+.material-card {
+  background-color: $surface;
+  border-radius: $radius-xlarge;
+  box-shadow: $shadow-2;
+  padding: $spacing-lg;
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: $shadow-3;
+  }
+}
+
+// Material Design 按钮
+.material-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: 10px 24px;
+  border: none;
+  border-radius: $radius-small;
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // 波纹效果
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  &:active::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  // 填充按钮
+  &.filled {
+    background-color: $primary-color;
+    color: $on-primary;
+
+    &:hover {
+      background-color: color-mix(in srgb, $primary-color 92%, black);
+      box-shadow: $shadow-2;
+    }
+
+    &:disabled {
+      background-color: rgba($on-surface, 0.12);
+      color: rgba($on-surface, 0.38);
+      cursor: not-allowed;
+    }
+  }
+
+  // 描边按钮
+  &.outlined {
+    background-color: transparent;
+    color: $primary-color;
+    border: 1px solid $outline;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.08);
+    }
+  }
+
+  // 文字按钮
+  &.text {
+    background-color: transparent;
+    color: $primary-color;
+    padding: 10px 12px;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.08);
+    }
+  }
+
+  // 图标按钮
+  &.icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: $radius-small;
+  }
+}
+
+// Material Design 输入框
+.material-input {
+  position: relative;
+  margin-bottom: $spacing-md;
+
+  &__field {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 1px solid $outline;
+    border-radius: $radius-small;
+    background-color: transparent;
+    font-family: $font-family;
+    font-size: 16px;
+    color: $on-surface;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      border-width: 2px;
+      padding-bottom: 15px;
+    }
+
+    &::placeholder {
+      color: $on-surface-variant;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $on-surface-variant;
+    font-size: 20px;
+    transition: color 0.2s;
+  }
+
+  &__field:focus + &__icon {
+    color: $primary-color;
+  }
+}
+
+// Material Design 加载动画
+.material-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba($primary-color, 0.3);
+  border-top-color: $primary-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Material Design 涟漪效果
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}

@@ -1,0 +1,1 @@
+import{a as t}from"./index-CRdH8NAo.js";const e={listTools:()=>t.get("/tools"),listEnabledTools:()=>t.get("/tools/enabled"),createTool:o=>t.post("/tools",o),updateTool:(o,l)=>t.put(`/tools/${o}`,l),testTool:o=>t.post(`/tools/${o}/test`),deleteTool:o=>t.delete(`/tools/${o}`)};export{e as t};

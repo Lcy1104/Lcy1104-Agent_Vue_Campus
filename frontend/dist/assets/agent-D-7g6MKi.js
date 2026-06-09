@@ -1,0 +1,1 @@
+import{a as t}from"./index-CRdH8NAo.js";const g={listPublicStrategies:()=>t.get("/agent/strategies"),listStrategies:()=>t.get("/admin/agent/strategies"),listConfigs:()=>t.get("/admin/agent/configs"),updateConfig:(a,e)=>t.put(`/admin/agent/configs/${a}`,e)};export{g as a};

@@ -1,0 +1,1 @@
+import{o as d,l as s}from"./index-DniF0siH.js";function i(e){const n=r=>{var o;return e==null?void 0:e((o=r.detail)==null?void 0:o.reason)};d(()=>window.addEventListener("admin-refresh",n)),s(()=>window.removeEventListener("admin-refresh",n))}export{i as u};
